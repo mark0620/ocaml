@@ -14,7 +14,7 @@ let rec int_of_expr e =
 	match e with
 	| NUM i -> i
 	| PLUS (e1,e2) -> (int_of_expr e1) + (int_of_expr e2)
-	| MINUS (e1,e2) -> (int_of_expr e1) + (int_of_expr e2)
+	| MINUS (e1,e2) -> (int_of_expr e1) - (int_of_expr e2)
 ;;
 (* eval : formula -> bool *)
 let rec eval f =
