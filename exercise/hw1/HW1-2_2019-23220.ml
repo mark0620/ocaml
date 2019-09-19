@@ -24,7 +24,7 @@ let rec eval f =
 	| NOT not_f -> (eval not_f)
 	| ANDALSO (f1, f2)-> (eval f1) && (eval f2)
 	| ORELSE (f1, f2)-> (eval f1) || (eval f2)
-	| IMPLY (f1 ,f2)-> (eval f1) && not(eval f2)
+	| IMPLY (f1 ,f2)-> not(eval f1) || (eval f2)
 	| LESS (e3, e4)->
 		if((int_of_expr e3) < (int_of_expr e4))
 		then (eval TRUE) 

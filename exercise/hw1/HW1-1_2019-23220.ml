@@ -1,6 +1,4 @@
 type nat = ZERO | SUCC of nat
-let one = SUCC(ZERO)
-let two = SUCC(SUCC(ZERO))
 ;;
 let rec natadd : nat*nat -> nat =
 	fun(a,b) ->
@@ -13,6 +11,9 @@ let rec natmul : nat*nat -> nat =
 	fun(c,d) ->
 	match c with
 	| ZERO -> ZERO
-	| one -> d
-	| SUCC c_pre -> natadd(natmul(c_pre,d),d)
+	| SUCC c_pre -> 
+		let nat_mul = natmul(c_pre,d)in
+		natadd(nat_mul,d)
 ;;
+
+
